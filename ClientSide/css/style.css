@@ -1,0 +1,86 @@
+
+.header {
+    background-color: #04A0DF;
+    color: #ffffff;
+}
+
+.headingName {
+    font-family: 'Roboto', sans-serif;
+}
+
+.logoImage {
+    height: 50px;
+}
+
+.tableDiv {
+    min-height: 350px;
+}
+
+.name-card {
+    padding: 20px 20px 15px;
+    border-radius: 4px;
+    border: 0.5px solid #848d95 ;
+}
+
+.name-card-title {
+    font-family: 'Montserrat', sans-serif;
+    color: #ff3f6c;
+}
+
+.handsontable th {
+    border-bottom: 1px solid #ddd;
+    height: 40px;
+    vertical-align: middle;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.handsontable td {
+    vertical-align: middle;
+    padding-top: 5px;
+    padding-bottom: 3px;
+    background-color: white;
+    color: #282c3f;
+}
+
+.handsontable .wtBorder {
+    display: none !important;
+}
+
+.handsontable td.firstVisibleColumn {
+    border-left: 1px solid #CCC;
+    color: #009688;
+    cursor: pointer;
+}
+
+body .handsontable thead th.ht__active_highlight, .ht__highlight {
+    background-color: #f0f0f0 !important
+}
+
+
+.handsontable td.firstVisibleColumn:hover {
+    color: #6c757d;
+}
+
+.error {
+    color: red;
+}
+
+.required {
+    color: red;
+}
+
+footer {
+    left: 0;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+}
+
+
+
+
+
+
+

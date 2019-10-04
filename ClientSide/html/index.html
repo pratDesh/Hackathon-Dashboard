@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mediaocean</title>
+    <link rel="icon" href="../static/moLogo1.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/handsontable/7.1.1/handsontable.full.css" rel="stylesheet" media="screen">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+<body>
+
+<div class="py-3 header" id="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h4> <img class="logoImage" id="logoImage" src="../static/moLogo1.png"> Mediaocean</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 offset-1">
+                <div  data-bind="visible: showBackButton">
+                    <a onclick="getHackathons()" href=""><i class="fas fa-chevron-left"></i> Hackathons</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-10 offset-1">
+                <div class="name-card">
+                    <div class="name-card-title">
+                        <div class="row">
+                            <div class="col-sm-4" class="headingName">
+                                <h4 data-bind="text: headingName"></h4>
+                            </div>
+                            <div class="col-sm-2 offset-6" data-bind="visible: showAddButton">
+                                <a data-toggle="modal" data-target="#addIdeaFormModal"  class="btn btn-raised btn-primary" id="addButton"> <i class="fas fa-plus"></i> New Idea</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="py-3 tableDiv" id="tableDiv">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-11 offset-1">
+                <div id="hotTable"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addIdeaFormModal" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Idea Details</h5>
+                <button type="button" id="modalCloseButton" class="close" data-dismiss="modal" onclick="clearFormData()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form role="form" id="addIdeaForm">
+                    <div class="form-group">
+                        <label>Idea Summary <span class="required">*</span></label>
+                        <input type="text" data-bind="value: ideaSummary" class="form-control" id="inputIdeaSummary" name="inputIdeaSummary"  require>
+                    </div>
+                    <div  class="form-group">
+                        <label >Idea Description <span class="required">*</span></label>
+                        <textarea data-bind="value: ideaDescription" class="form-control" id="inputIdeaDescription"  name="inputIdeaDescription" rows="3"  require></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select data-bind="value: ideaCategory"  id="inputIdeaCategory" class="form-control">
+                            <option>Domain</option>
+                            <option>Technology</option>
+                            <option>Corporate</option>
+                            <option>Operations</option>
+                            <option>Human Resources</option>
+                            <option>Finance</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label >Team Members</label>
+                        <textarea data-bind="value: ideaTeamMembers" class="form-control" id="inputTeamMembers" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary btn-block" data-bind="visible: showAddSaveButton" id="saveIdeaButton">Submit <i class="fas fa-arrow-right"></i></button>
+                    <button type="submit" class="btn btn-outline-primary btn-block" data-bind="visible: showEditSaveButton" id="editIdeaButton">Submit <i class="fas fa-arrow-right"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="page-footer ">
+    <div class="footer-copyright text-center py-3">
+        © 2019 Copyright: A Mediaocean Production
+    </div>
+</footer>
+
+</body>
+
+<!--Dependencies JS files -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handsontable/7.1.1/handsontable.full.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-debug.js"> </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+
+<!--JS files -->
+<script src="../js/main.js"></script>
+<script src="../js/services.js"></script>
+<script src="../js/hackathon.js"></script>
+<script src="../js/ideaDisplayTable.js"></script>
+<script src="../js/ideas.js"></script>
+<script src="../js/IdeaFormHandling.js"></script>
+
+</html>
