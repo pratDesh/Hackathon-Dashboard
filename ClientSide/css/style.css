@@ -1,4 +1,3 @@
-
 .header {
     background-color: #04A0DF;
     color: #ffffff;
@@ -25,6 +24,7 @@
 .name-card-title {
     font-family: 'Montserrat', sans-serif;
     color: #ff3f6c;
+    font-weight: bold;
 }
 
 .handsontable th {
@@ -78,9 +78,10 @@ footer {
     width: 100%;
 }
 
+.toast-success {
+    background-color: #009688;
+}
 
-
-
-
-
-
+#toast-container > div {
+    opacity: 1;
+}
